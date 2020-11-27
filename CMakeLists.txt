@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(k-nearest_neighbors VERSION 0.1.0)
 
-include(CTest)
-enable_testing()
+include_directories(src)
 
-add_executable(k-nearest_neighbors main.cpp)
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+add_subdirectory(src)
+add_subdirectory(tst)
+add_subdirectory(lib/googletest)
+include_directories(lib/googletest/include)
