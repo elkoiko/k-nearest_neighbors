@@ -3,8 +3,11 @@
 K-nearest neighbors algorithm
 
 # TODO
-- Refactor CMake
-- Replace GTest by Catch2
+
+- [x] Refactor CMake
+
+- [x] Replace Gtest by Catch2
+
 - Implement knn algorithm
 
 # Contributors
