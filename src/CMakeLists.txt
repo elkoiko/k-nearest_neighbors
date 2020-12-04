@@ -1,6 +1,6 @@
 set(BINARY ${CMAKE_PROJECT_NAME})
 
-set(SOURCES main.cpp MyClass.cpp MyClass.hpp)
+set(SOURCES main.cpp Data.cpp Data.hpp Sample.cpp Sample.hpp Features.cpp Features.hpp Knn.hpp Knn.cpp KnnCosine.hpp KnnCosine.cpp ClassificationReport.hpp ClassificationReport.cpp)
 
 add_executable(${BINARY} ${SOURCES})
 
