@@ -1,7 +1,15 @@
 #include "Features.hpp"
 #include <numeric>
 
-Features::Features(vector<double> params){
+Features::Features() {
+    _norm = 0;
+}
+
+Features::Features(string strFeatures) {
+    
+}
+
+Features::Features(vector<double> params) {
     this->_features = params;
     this->size = params.size();
     this->_norm = sqrt(*this * *this);
