@@ -6,11 +6,11 @@ class Features {
 public:
     int size;
 
-    Features();
+    Features(vector<double> params);
     ~Features();
 
     // Operators
-    Features operator*(const Features &features);
+    double operator*(const Features &features);
     double operator[](int index);
 
     // Getters
