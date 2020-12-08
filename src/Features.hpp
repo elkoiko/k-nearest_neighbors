@@ -9,9 +9,11 @@ public:
 
     Features();
     Features(string strFeatures);
+    Features(vector<double> params);
+    ~Features();
 
     // Operators
-    Features operator*(const Features &features);
+    double operator*(const Features &features);
     double operator[](int index);
 
     // Getters
