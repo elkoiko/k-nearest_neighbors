@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Features {
@@ -7,7 +8,7 @@ public:
     int size;
 
     Features();
-    ~Features();
+    Features(string strFeatures);
 
     // Operators
     Features operator*(const Features &features);

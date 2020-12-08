@@ -1,21 +1,22 @@
+#include <iostream>
 #include "Features.hpp"
 using namespace std;
 
 class Sample {
 
 public:
-    int scale; // Don't know yet what it's for
-
     Sample();
-    ~Sample();
+    Sample(string strSample);
 
     string toString();
+
+    void scale();
 
     // Operators
     double operator[](int index);
 
     // Getters
-    unsigned char getTag();
+    unsigned char getTag() const;
     Features getFeatures();
 
 private:
