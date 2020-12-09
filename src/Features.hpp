@@ -7,8 +7,7 @@ public:
     int size;
 
     Features();
-    Features(string strFeatures);
-    ~Features();
+    Features(std::string strFeatures);
 
     // Operators
     double operator*(const Features &features);
@@ -19,5 +18,6 @@ public:
 
 private:
     double _norm;
-    vector<double> _features;
+    std::vector<double> _features;
+    std::vector<double> split(const std::string &str, const std::string &delim);
 };

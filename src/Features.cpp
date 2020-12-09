@@ -8,7 +8,6 @@ Features::Features() {
 }
 
 Features::Features(string strFeatures) {
-    cout << strFeatures;
     vector<double>  params = split(strFeatures, " ");
     _features = params;
     size = params.size();
@@ -27,7 +26,7 @@ double Features::operator[](int index) {
     return _features[index];
 }
 
-vector<double> split(const string &str, const string &delim)
+ vector<double> Features::split(const string &str, const string &delim)
 {
     vector<double> tokens;
     size_t prev = 0, pos = 0;
