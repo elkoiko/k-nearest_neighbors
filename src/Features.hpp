@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-using namespace std;
 
 class Features {
 
@@ -9,7 +8,6 @@ public:
 
     Features();
     Features(string strFeatures);
-    Features(vector<double> params);
     ~Features();
 
     // Operators
