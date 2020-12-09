@@ -1,25 +1,26 @@
 #include <iostream>
 #include "Features.hpp"
-using namespace std;
 
 class Sample {
 
 public:
     Sample();
-    Sample(string strSample);
+    Sample(std::string strSample);
 
-    string toString();
+    std::string toString();
 
     void scale();
+    void initTag(const std::string &strSample);
+    std::string getFeaturesString(const std::string &strSample);
 
     // Operators
     double operator[](int index);
 
     // Getters
-    unsigned char getTag() const;
-    Features getFeatures();
+    char getTag() const;
+    Features getFeatures() const;
 
 private:
-    unsigned char _tag;
+    char _tag = 0;
     Features _features;
 };
