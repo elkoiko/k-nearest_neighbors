@@ -10,8 +10,6 @@ public:
     std::string toString();
 
     void scale();
-    void initTag(const std::string &strSample);
-    std::string getFeaturesString(const std::string &strSample);
 
     // Operators
     double operator[](int index);

@@ -7,6 +7,7 @@ public:
     int size;
 
     Features();
+    Features(const std::vector<double> &features);
     Features(std::string strFeatures);
 
     // Operators

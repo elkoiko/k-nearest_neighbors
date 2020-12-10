@@ -7,6 +7,11 @@ Features::Features() {
     size = 0;
 }
 
+Features::Features(const std::vector<double> &features)
+{
+    // TODO: Implement
+}
+
 Features::Features(string strFeatures) {
     vector<double>  params = split(strFeatures, " ");
     _features = params;
