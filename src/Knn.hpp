@@ -2,9 +2,9 @@ class Knn {
 
 public:
 
-    Knn();
+  Knn();
 
-    int predict();
+  int predict();
 
 protected:
   double similarity;  

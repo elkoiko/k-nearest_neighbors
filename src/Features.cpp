@@ -9,13 +9,8 @@ Features::Features() {
 
 Features::Features(const std::vector<double> &features)
 {
-    // TODO: Implement
-}
-
-Features::Features(string strFeatures) {
-    vector<double>  params = split(strFeatures, " ");
-    _features = params;
-    size = params.size();
+    _features =  features;
+    size = features.size();
     _norm = sqrt(*this * *this);
 }
 

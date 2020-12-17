@@ -8,7 +8,6 @@ public:
 
     Features();
     Features(const std::vector<double> &features);
-    Features(std::string strFeatures);
 
     // Operators
     double operator*(const Features &features);
