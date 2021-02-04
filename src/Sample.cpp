@@ -7,7 +7,6 @@ using namespace StringUtils;
 Sample::Sample()
 {
     _tag = 0;
-    _features = Features();
 }
 
 // Sample takes a string representing a sample
@@ -19,14 +18,14 @@ Sample::Sample(string strSample)
     vector<double> sampleData = split(strSample, " ");
 
     // First element is the tag
-    _tag = (char)sampleData.front();
+    _tag = (int)sampleData.front();
 
     // We remove the tag to only keep the features
     sampleData.erase(sampleData.begin());
     _features = Features(sampleData);
 }
 
-char Sample::getTag() const
+int Sample::getTag() const
 {
     return _tag;
 }

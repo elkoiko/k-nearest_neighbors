@@ -7,18 +7,18 @@ public:
     Sample();
     Sample(std::string strSample);
 
-    std::string toString();
+    std::string toString() const;
 
     void scale();
 
     // Operators
-    double operator[](int index);
+    double operator[](int index) const;
 
     // Getters
-    char getTag() const;
+    int getTag() const;
     Features getFeatures() const;
 
 private:
-    char _tag = 0;
+    int _tag = 0;
     Features _features;
 };

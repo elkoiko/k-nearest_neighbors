@@ -1,6 +1,7 @@
 #include <iostream>
 #include "KnnCosine.hpp"
+#include "Data.hpp"
 
 int main(int, char**) {
-    std::cout << "Hola, mundo!\n";
+    Data data("/Users/thomas/Desktop/digits.svm");
 }

@@ -1,24 +1,22 @@
+#include <fstream>
+#include <vector>
 #include "Sample.hpp"
-using namespace std;
 
 class Data {
 
 public:
     Data();
-    ~Data();
+    Data(std::string strFilePath);
 
-    void add(Sample sample);
-
-    // Factory method
-    static Data fromFile();
+    void add(Sample& sample);
 
     // Operators
-    double operator[](int index);
+    double operator[](int index) const;
 
-    string toString();
+    std::string toString() const;
 
 private:
     int _nbFeatures;
     int _nbSamples; // Size of _samples vector
-    vector<Sample> _samples;
+    std::vector<Sample> _samples;
 };
