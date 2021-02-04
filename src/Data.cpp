@@ -49,10 +49,11 @@ using namespace std;
     // Operators
     double Data::operator[](int index) const
     {
+        // TODO: Getter to samples vector
         return 0.0;
     }
 
     string Data::toString() const
     {
-        return "";
+        return "size=" + to_string(_samples.size());
     }
