@@ -25,6 +25,17 @@ Sample::Sample(string strSample)
     _features = Features(sampleData);
 }
 
+double Sample::operator[](int index) const
+{
+    double dRet = -1;
+
+    if (index > 0 && index < _features.size)
+    {
+        dRet = _features[index];
+    }
+    return dRet;
+}
+
 int Sample::getTag() const
 {
     return _tag;

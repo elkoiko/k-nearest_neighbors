@@ -23,7 +23,7 @@ double Features::operator*(const Features &features) {
     return inner_product(_features.begin(), _features.end(), features._features.begin(), 0.0);
 }
 
-double Features::operator[](int index) {
+double Features::operator[](int index) const {
     return _features[index];
 }
 

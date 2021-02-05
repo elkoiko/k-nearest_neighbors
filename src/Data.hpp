@@ -11,7 +11,7 @@ public:
     void add(Sample& sample);
 
     // Operators
-    double operator[](int index) const;
+    Sample operator[](int index) const;
 
     std::string toString() const;
 

@@ -47,10 +47,15 @@ using namespace std;
     }
 
     // Operators
-    double Data::operator[](int index) const
+    Sample Data::operator[](int index) const
     {
-        // TODO: Getter to samples vector
-        return 0.0;
+        Sample sample;
+
+        if (index > 0 && index < _samples.size())
+        {
+            sample = _samples[index];
+        }
+        return sample;
     }
 
     string Data::toString() const

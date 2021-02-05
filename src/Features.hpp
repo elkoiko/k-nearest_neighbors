@@ -11,7 +11,7 @@ public:
 
     // Operators
     double operator*(const Features &features);
-    double operator[](int index);
+    double operator[](int index) const;
 
     // Getters
     double getNorm();
