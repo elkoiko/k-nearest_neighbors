@@ -65,7 +65,7 @@ using namespace std;
 
         for (const Sample& sample: _samples)
         {
-            outPut += to_string(sample.getTag()) + " ";
+            outPut += sample.toString() + " ";
         }
         return outPut + "]";
     }

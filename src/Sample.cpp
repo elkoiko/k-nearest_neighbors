@@ -45,3 +45,8 @@ Features Sample::getFeatures() const
 {
     return _features;
 }
+
+string Sample::toString() const
+{
+    return to_string(getTag());
+}
