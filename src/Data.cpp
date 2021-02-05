@@ -58,7 +58,14 @@ using namespace std;
         return sample;
     }
 
+    // Returns a string containing all the tags for each sample contained in data
     string Data::toString() const
     {
-        return "size=" + to_string(_samples.size());
+        string outPut = "size=" + to_string(_samples.size()) + " tags=[ ";
+
+        for (const Sample& sample: _samples)
+        {
+            outPut += to_string(sample.getTag()) + " ";
+        }
+        return outPut + "]";
     }
