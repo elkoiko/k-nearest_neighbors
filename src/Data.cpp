@@ -11,6 +11,7 @@ using namespace std;
         
         // Open strFilePath to get a stream
         string line;
+        int nbExpectedSamples = 0;
         ifstream dataSource;
 
         dataSource.open(strFilePath);
@@ -18,7 +19,7 @@ using namespace std;
         {
             _samples.clear();
             // Read First line = nbSamples
-            dataSource >> _nbSamples;
+            dataSource >> nbExpectedSamples;
             // Read second line = nbFeatures per sample
             dataSource >> _nbFeatures >> line; // Getting _nbFeatures and going to the 3rd line
             // Loading all samples
@@ -29,7 +30,7 @@ using namespace std;
             }
 
             // Finally we check if enough lines were read
-            if (_samples.size() < _nbSamples)
+            if (_samples.size() < nbExpectedSamples)
             {
                 cerr << "Warning, expecting " << _nbSamples << " samples but retrieved only " << _samples.size() << endl;
             }
@@ -44,6 +45,7 @@ using namespace std;
     void Data::add(Sample& sample)
     {
         _samples.push_back(sample);
+        _nbSamples = _samples.size();
     }
 
     // Operators

@@ -1,3 +1,6 @@
+#ifndef DATA_H
+# define DATA_H
+
 #include <fstream>
 #include <vector>
 #include "Sample.hpp"
@@ -20,3 +23,5 @@ private:
     int _nbSamples; // Size of _samples vector
     std::vector<Sample> _samples;
 };
+
+#endif

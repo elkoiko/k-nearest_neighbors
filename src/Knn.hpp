@@ -1,14 +1,20 @@
+#ifndef KNN_H
+# define KNN_H
+
+#include "Data.hpp"
+
 class Knn {
 
 public:
 
-  Knn();
-
-  int predict();
+  virtual int predict() = 0;
 
 protected:
-  double similarity;  
+  double _similarity;
+  Data _trainingData;
 
-  int getKnn();
-  int predictSingle();
+  virtual int getKnn() = 0;
+  virtual int predictSingle() = 0;
 };
+
+#endif /* KNN_H */

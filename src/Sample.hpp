@@ -1,3 +1,6 @@
+#ifndef SAMPLE_H
+# define SAMPLE_H
+
 #include <iostream>
 #include "Features.hpp"
 
@@ -22,3 +25,5 @@ private:
     int _tag = 0;
     Features _features;
 };
+
+#endif

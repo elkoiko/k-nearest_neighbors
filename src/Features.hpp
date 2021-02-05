@@ -1,3 +1,6 @@
+#ifndef FEATURES_H
+# define FEATURES_H
+
 #include <vector>
 #include <iostream>
 
@@ -21,3 +24,5 @@ private:
     std::vector<double> _features;
     std::vector<double> split(const std::string &str, const std::string &delim);
 };
+
+#endif
