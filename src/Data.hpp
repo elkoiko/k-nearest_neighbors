@@ -14,9 +14,15 @@ public:
     void add(Sample& sample);
 
     // Operators
-    Sample operator[](int index) const;
+    const Sample& operator[](int index) const;
 
     std::string toString() const;
+
+    // Iterators
+    std::vector<Sample>::const_iterator begin() const;
+    std::vector<Sample>::const_iterator end() const;
+
+    int* getNbFeatures();
 
 private:
     int _nbFeatures;

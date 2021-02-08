@@ -49,15 +49,9 @@ using namespace std;
     }
 
     // Operators
-    Sample Data::operator[](int index) const
+    const Sample& Data::operator[](int index) const
     {
-        Sample sample;
-
-        if (index > 0 && index < _samples.size())
-        {
-            sample = _samples[index];
-        }
-        return sample;
+        return _samples[index];
     }
 
     // Returns a string containing all the tags for each sample contained in data
@@ -70,4 +64,18 @@ using namespace std;
             outPut += sample.toString() + " ";
         }
         return outPut + "]";
+    }
+
+    std::vector<Sample>::const_iterator Data::begin() const
+    {
+        return _samples.begin();
+    }
+
+    std::vector<Sample>::const_iterator Data::end() const
+    {
+        return _samples.end();
+    }
+
+    int* Data::getNbFeatures() {
+        return &_nbFeatures;
     }
