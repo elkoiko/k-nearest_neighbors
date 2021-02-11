@@ -1,6 +1,7 @@
 #include "KnnCosine.hpp"
+using namespace std;
 
-KnnCosine::KnnCosine()
+KnnCosine::KnnCosine(const Data& trainingData) : Knn(trainingData)
 {
 
 }
@@ -9,10 +10,8 @@ int KnnCosine::predict(const Data& data, int k)
 {
     for (const Sample& sample: data)
     {
-        _similarities.clear(); // Reset to 0 for each sample
         predictSingle(sample, k);
     }
-    _similarities.clear();
     return 1;
 }
 
@@ -28,25 +27,28 @@ int KnnCosine::predict(const Data& data, int k)
 // -> On a le choix de faire sinon par nb occurences + moyenne des similarités
 // -> Ca va être 6 pour le coup donc on va retourner Similarity { 6; (0.8+0.98)/2; }
 
-vector<Similarity>& KnnCosine::getKnn(const Sample& sample, int k)
+std::vector<Similarity>& KnnCosine::getKnn(std::vector<Similarity> &similarities, int k)
 {
-    // Retourne les k similarités les plus proches
-    return 1;
+    return similarities;
 }
 
 Similarity KnnCosine::predictSingle(const Sample& sample, int k)
 {
     Similarity similarity;
+    vector<Similarity> tmpSimilarities;
+    tmpSimilarities.reserve(_trainingData.getNbSamples());
 
     for(const Sample& trainingSample: _trainingData)
     {
         Similarity tmp;
+        const Features& sampleFeatures = sample.getFeatures();
+        const Features& trainingFeatures = trainingSample.getFeatures();
 
-        tmp.tag = trainingSample.tag;
-        //TODO: calculate the distance and store it into tmp.distance
-        _similarities.append(tmp);
+        tmp.value = (sampleFeatures * trainingFeatures) / (sampleFeatures.getNorm() * trainingFeatures.getNorm());
+        tmp.tag = trainingSample.getTag();
+        tmpSimilarities.push_back(tmp);
     }
-    vector<Similarity>& kSimilarities = getKnn(sample, k);
+    getKnn(tmpSimilarities, k);
     // TODO: On déduit la meilleur similarité dans similarity
     return similarity;
 }

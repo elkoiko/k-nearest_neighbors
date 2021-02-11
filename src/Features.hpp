@@ -13,11 +13,11 @@ public:
     Features(const std::vector<double> &features);
 
     // Operators
-    double operator*(const Features &features);
+    double operator*(const Features &features) const;
     double operator[](int index) const;
 
     // Getters
-    double getNorm();
+    double getNorm() const;
 
 private:
     double _norm;

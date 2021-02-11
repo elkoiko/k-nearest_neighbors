@@ -18,11 +18,14 @@ public:
 
     std::string toString() const;
 
+    inline int getNbSamples() const
+    {
+        return _nbSamples;
+    }
+
     // Iterators
     std::vector<Sample>::const_iterator begin() const;
     std::vector<Sample>::const_iterator end() const;
-
-    int* getNbFeatures();
 
 private:
     int _nbFeatures;

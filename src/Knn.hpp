@@ -9,14 +9,14 @@
 class Knn {
 
 public:
-
+  Knn(const Data& trainingData);
   virtual int predict(const Data& data, int k) = 0;
 
 protected:
-  vector<Similarity> _similarities;
-  Data _trainingData;
+  std::vector<Similarity> _similarities;
+  const Data &_trainingData;
 
-  virtual int getKnn(const Sample& sample, int k) = 0;
+  virtual std::vector<Similarity>& getKnn(std::vector<Similarity> & similarities, int k) = 0;
   virtual Similarity predictSingle(const Sample& sample, int k) = 0;
 };
 

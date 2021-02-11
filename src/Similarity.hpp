@@ -1,4 +1,5 @@
 typedef struct Similarity {
-    int tag;
-    double distance;
+    int predictedTag = -1;
+    int tag = -1;
+    double value = 0.0; // The greater the better
 } Similarity;

@@ -32,7 +32,7 @@ using namespace std;
             // Finally we check if enough lines were read
             if (_samples.size() < nbExpectedSamples)
             {
-                cerr << "Warning, expecting " << _nbSamples << " samples but retrieved only " << _samples.size() << endl;
+                cerr << "Warning, expecting " << nbExpectedSamples << " samples but retrieved only " << _samples.size() << endl;
             }
             dataSource.close();
         }
@@ -74,8 +74,4 @@ using namespace std;
     std::vector<Sample>::const_iterator Data::end() const
     {
         return _samples.end();
-    }
-
-    int* Data::getNbFeatures() {
-        return &_nbFeatures;
     }

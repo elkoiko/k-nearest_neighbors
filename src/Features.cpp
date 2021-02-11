@@ -14,11 +14,11 @@ Features::Features(const std::vector<double> &features)
     _norm = sqrt(*this * *this);
 }
 
-double Features::getNorm() {
+double Features::getNorm() const {
     return _norm;
 }
 
-double Features::operator*(const Features &features) {
+double Features::operator*(const Features &features) const {
     // 0.0 to cast to double
     return inner_product(_features.begin(), _features.end(), features._features.begin(), 0.0);
 }
