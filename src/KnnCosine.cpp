@@ -27,8 +27,12 @@ int KnnCosine::predict(const Data& data, int k)
 // -> On a le choix de faire sinon par nb occurences + moyenne des similarités
 // -> Ca va être 6 pour le coup donc on va retourner Similarity { 6; (0.8+0.98)/2; }
 
+// getKnn returns the given similarities vector with only the k nearest similarities (highest similarities values).
 std::vector<Similarity>& KnnCosine::getKnn(std::vector<Similarity> &similarities, int k)
 {
+    sort(similarities.begin(), similarities.end(), compareSimilarities);
+    similarities.erase(similarities.begin() + k, similarities.end());
+    similarities.shrink_to_fit(); // Reducing the capacity in order to save memory
     return similarities;
 }
 
@@ -36,7 +40,7 @@ Similarity KnnCosine::predictSingle(const Sample& sample, int k)
 {
     Similarity similarity;
     vector<Similarity> tmpSimilarities;
-    tmpSimilarities.reserve(_trainingData.getNbSamples());
+    tmpSimilarities.reserve(_trainingData.getNbSamples()); // Allocating memory once for all
 
     for(const Sample& trainingSample: _trainingData)
     {

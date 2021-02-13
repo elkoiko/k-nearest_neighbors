@@ -18,6 +18,7 @@ protected:
 
   virtual std::vector<Similarity>& getKnn(std::vector<Similarity> & similarities, int k) = 0;
   virtual Similarity predictSingle(const Sample& sample, int k) = 0;
+  static bool compareSimilarities(const Similarity& s1, const Similarity& s2);
 };
 
 #endif /* KNN_H */
