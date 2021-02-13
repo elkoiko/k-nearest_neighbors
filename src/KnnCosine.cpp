@@ -3,16 +3,16 @@ using namespace std;
 
 KnnCosine::KnnCosine(const Data& trainingData) : Knn(trainingData)
 {
-
 }
 
-int KnnCosine::predict(const Data& data, int k) 
+void KnnCosine::predict(const Data& data, int k) 
 {
+     // Allocating memory for all similarities that will be predicted
+    _similarities.reserve(data.getNbSamples());
     for (const Sample& sample: data)
     {
-        predictSingle(sample, k);
+        _similarities.push_back(predictSingle(sample, k));
     }
-    return 1;
 }
 
 // 5 similarites
@@ -40,8 +40,8 @@ Similarity KnnCosine::predictSingle(const Sample& sample, int k)
 {
     Similarity similarity;
     vector<Similarity> tmpSimilarities;
-    tmpSimilarities.reserve(_trainingData.getNbSamples()); // Allocating memory once for all
 
+    tmpSimilarities.reserve(_trainingData.getNbSamples()); // Allocating memory once for all
     for(const Sample& trainingSample: _trainingData)
     {
         Similarity tmp;
@@ -53,6 +53,37 @@ Similarity KnnCosine::predictSingle(const Sample& sample, int k)
         tmpSimilarities.push_back(tmp);
     }
     getKnn(tmpSimilarities, k);
-    // TODO: On déduit la meilleur similarité dans similarity
+    // Now that we have the k nearest similarities, we must predict the correct tag
+
+    similarity = getNearestSimilarity(tmpSimilarities);
+    similarity.tag = sample.getTag();
     return similarity;
+}
+
+Similarity KnnCosine::getNearestSimilarity(const vector<Similarity>& similarities)
+{
+    Similarity nearestSimilarity;
+    vector<Similarity> summedSimilarities;
+
+    for (const Similarity& similarity: similarities)
+    {
+        auto it = find_if(summedSimilarities.begin(), summedSimilarities.end(),
+                            [&similarity](const Similarity& summedSimilarity) { return similarity.tag == summedSimilarity.tag; });
+        if (it != summedSimilarities.end())
+        {
+            it->value += similarity.value;
+        }
+        else
+        {
+            Similarity tmpSimilarity;
+            tmpSimilarity.tag = similarity.tag;
+            tmpSimilarity.value = similarity.value;
+            summedSimilarities.push_back(tmpSimilarity);
+        }
+    }
+    sort(summedSimilarities.begin(), summedSimilarities.end(), compareSimilarities);
+    nearestSimilarity = summedSimilarities[0];
+    nearestSimilarity.predictedTag = nearestSimilarity.tag;
+    nearestSimilarity.tag = -1;
+    return nearestSimilarity;
 }
