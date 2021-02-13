@@ -11,6 +11,7 @@ class Knn {
 public:
   Knn(const Data& trainingData);
   virtual void predict(const Data& data, int k) = 0;
+  const std::vector<Similarity>& getPredictedSimilarities() const;
 
 protected:
   std::vector<Similarity> _similarities;
