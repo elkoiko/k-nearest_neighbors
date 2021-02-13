@@ -21,7 +21,9 @@ using namespace std;
             // Read First line = nbSamples
             dataSource >> nbExpectedSamples;
             // Read second line = nbFeatures per sample
-            dataSource >> _nbFeatures >> line; // Getting _nbFeatures and going to the 3rd line
+            dataSource >> _nbFeatures; // Getting _nbFeatures
+            // Just going to the 3rd line
+            getline(dataSource, line);
             // Loading all samples
             while (getline(dataSource, line))
             {
