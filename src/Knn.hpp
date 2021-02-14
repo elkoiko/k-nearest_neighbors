@@ -10,16 +10,16 @@ class Knn {
 
 public:
   Knn(const Data& trainingData);
-  virtual void predict(const Data& data, int k) = 0;
+  void predict(const Data& data, int k);
   const std::vector<Similarity>& getPredictedSimilarities() const;
 
 protected:
   std::vector<Similarity> _similarities;
   const Data &_trainingData;
 
-  virtual std::vector<Similarity>& getKnn(std::vector<Similarity> & similarities, int k) = 0;
   virtual Similarity predictSingle(const Sample& sample, int k) = 0;
-  virtual Similarity getNearestSimilarity(const std::vector<Similarity>& similarities) = 0;
+  std::vector<Similarity>& getKnn(std::vector<Similarity> & similarities, int k);
+  Similarity getNearestSimilarity(const std::vector<Similarity>& similarities);
   static bool compareSimilarities(const Similarity& s1, const Similarity& s2);
 };
 
