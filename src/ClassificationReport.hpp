@@ -1,15 +1,23 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+#include "Similarity.hpp"
 
 class ClassificationReport {
 
 public:
-    ClassificationReport();
+    ClassificationReport(const std::vector<Similarity>& predictedSimilarities, int k);
 
-    string toString();
+    std::string toString();
+
+    int getNbGoodTags() const;
+    int getNbWrongTags() const;
+    int getNbTotalTags() const;
+    double getConfusion() const;
 private:
-    int _confusion;
+    double _confusion;
     int _nbTags;
-    int _notOk;
     int _ok;
+    int _k;
+
+    void initTagsStatistics(const std::vector<Similarity>& predictedSimilarities);
 };
