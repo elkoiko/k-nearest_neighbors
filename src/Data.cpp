@@ -40,7 +40,7 @@ using namespace std;
         }
         else
         {
-            cerr << "data file doesn't exist";
+            cerr << "Data file " << strFilePath << " does not exist." << endl;
         }
     }
 

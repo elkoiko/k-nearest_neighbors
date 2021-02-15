@@ -48,6 +48,6 @@ string ClassificationReport::toString()
     strRet << "Classification Report:" << endl;
     strRet << _ok << " tags were well predicted." << endl;
     strRet << getNbWrongTags() << " tags were wrongly predicted." << endl;
-    strRet << "For a total of " << _nbTags << " tags, there is a confusion of " << _confusion * 100 << "% with k=" << _k << "." << endl;
+    strRet << "For a total of " << _nbTags << " tags, there is a confusion of " << 100 - _confusion * 100 << "% with k=" << _k << "." << endl;
     return strRet.str();
 }

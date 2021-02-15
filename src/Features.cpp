@@ -27,7 +27,7 @@ double Features::operator[](int index) const {
     return _features[index];
 }
 
- vector<double> Features::split(const string &str, const string &delim)
+vector<double> Features::split(const string &str, const string &delim)
 {
     vector<double> tokens;
     size_t prev = 0, pos = 0;
@@ -42,4 +42,14 @@ double Features::operator[](int index) const {
         prev = pos + delim.length();
     } while (pos < str.length() && prev < str.length());
     return tokens;
+}
+
+std::vector<double>::const_iterator Features::begin() const
+{
+    return _features.begin();
+}
+
+std::vector<double>::const_iterator Features::end() const
+{
+    return _features.end();
 }

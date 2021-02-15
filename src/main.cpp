@@ -1,5 +1,6 @@
 #include <iostream>
 #include "KnnCosine.hpp"
+#include "KnnEuclidian.hpp"
 #include "Data.hpp"
 #include "ClassificationReport.hpp"
 
@@ -19,8 +20,18 @@ int main(int argc, char** argv) {
     Data trainingData(strPathToTrainingData);
     Data data(strPathToUntaggedData);
 
-    KnnCosine prediction(trainingData);
-    prediction.predict(data, k);
-    ClassificationReport report(prediction.getPredictedSimilarities(), k);
-    std::cout << report.toString() << std::endl;
+    // Cosine prediction
+    std::cout << "COSINE PREDICTION" << std::endl;
+    KnnCosine cosinePrediction(trainingData);
+    cosinePrediction.predict(data, k);
+    ClassificationReport reportCosine(cosinePrediction.getPredictedSimilarities(), k);
+    std::cout << reportCosine.toString() << std::endl;
+
+    // Euclidian prediction
+    std::cout << "EUCLIDIAN PREDICTION" << std::endl;
+    KnnEuclidian euclidianPrediction(trainingData);
+    euclidianPrediction.predict(data, k);
+    ClassificationReport reportEuclidian(euclidianPrediction.getPredictedSimilarities(), k);
+    std::cout << reportEuclidian.toString() << std::endl;
+
 }

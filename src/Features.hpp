@@ -19,6 +19,10 @@ public:
     // Getters
     double getNorm() const;
 
+    // Iterators
+    std::vector<double>::const_iterator begin() const;
+    std::vector<double>::const_iterator end() const;
+
 private:
     double _norm;
     std::vector<double> _features;

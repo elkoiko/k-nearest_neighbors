@@ -9,6 +9,7 @@ set(SOURCES
     KnnCosine.hpp KnnCosine.cpp 
     ClassificationReport.hpp ClassificationReport.cpp 
     StringUtils.cpp StringUtils.hpp
+    KnnEuclidian.cpp KnnEuclidian.hpp
     )
 
 add_executable(${BINARY} ${SOURCES})
