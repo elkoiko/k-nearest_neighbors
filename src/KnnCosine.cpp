@@ -2,7 +2,7 @@
 using namespace std;
 
 KnnCosine::KnnCosine(const Data& trainingData) : Knn(trainingData)
-{
+{ 
 }
 
 Similarity KnnCosine::predictSingle(const Sample& sample, int k)
