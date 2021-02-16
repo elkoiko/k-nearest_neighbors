@@ -34,7 +34,7 @@ Similarity Knn::getNearestSimilarity(const vector<Similarity>& similarities)
     {
         auto it = find_if(summedSimilarities.begin(), summedSimilarities.end(),
                             [&similarity](const Similarity& summedSimilarity) { return similarity.tag == summedSimilarity.tag; });
-        if (it != summedSimilarities.end())
+        if (it != summedSimilarities.end()) // If similarity.tag already exists in summedSimilarities
         {
             it->value += similarity.value;
         }

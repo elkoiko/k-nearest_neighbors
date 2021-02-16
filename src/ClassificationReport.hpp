@@ -12,9 +12,9 @@ public:
     int getNbGoodTags() const;
     int getNbWrongTags() const;
     int getNbTotalTags() const;
-    double getConfusion() const;
+    double getAccuracy() const;
 private:
-    double _confusion;
+    double _accuracy;
     int _nbTags;
     int _ok;
     int _k;

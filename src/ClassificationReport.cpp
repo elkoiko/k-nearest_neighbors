@@ -5,7 +5,7 @@ using namespace std;
 ClassificationReport::ClassificationReport(const vector<Similarity>& predictedSimilarities, int k) : _k(k)
 {
     initTagsStatistics(predictedSimilarities);
-    _confusion = ((double)_ok) / ((double)_nbTags);
+    _accuracy = ((double)_ok) / ((double)_nbTags);
 }
 
 void ClassificationReport::initTagsStatistics(const vector<Similarity>& predictedSimilarities)
@@ -36,9 +36,9 @@ int ClassificationReport::getNbTotalTags() const
     return _nbTags;
 }
 
-double ClassificationReport::getConfusion() const
+double ClassificationReport::getAccuracy() const
 {
-    return _confusion;
+    return _accuracy;
 }
 
 string ClassificationReport::toString()
@@ -48,6 +48,6 @@ string ClassificationReport::toString()
     strRet << "Classification Report:" << endl;
     strRet << _ok << " tags were well predicted." << endl;
     strRet << getNbWrongTags() << " tags were wrongly predicted." << endl;
-    strRet << "For a total of " << _nbTags << " tags, there is a confusion of " << 100 - _confusion * 100 << "% with k=" << _k << "." << endl;
+    strRet << "For a total of " << _nbTags << " tags, there is an accuracy of " << _accuracy * 100 << "% with k=" << _k << "." << endl;
     return strRet.str();
 }

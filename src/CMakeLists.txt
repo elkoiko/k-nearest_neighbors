@@ -14,4 +14,6 @@ set(SOURCES
 
 add_executable(${BINARY} ${SOURCES})
 
+add_compile_options(${BINARY} PUBLIC -Wall -O3)
+
 add_library(${BINARY}_lib STATIC ${SOURCES})
