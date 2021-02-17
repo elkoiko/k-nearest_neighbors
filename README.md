@@ -2,14 +2,6 @@
 
 K-nearest neighbors algorithm
 
-# TODO
-
-- [x] Refactor CMake
-
-- [x] Replace Gtest by Catch2
-
-- Implement knn algorithm
-
 # Contributors
 
 - [@Elkoiko (Thomas Couacault)](https://github.com/elkoiko)
